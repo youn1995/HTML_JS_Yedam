@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function showPage(){
+            var v_name = document.getElementById("username").value;
+            var v_gender = document.getElementById("male").value;
+            location.href='button.jsp?name='+v_name+'&gender='+v_gender;
+        }
+    </script>
+</head>
+
+<body>
+    <a href="../main.html">Main Page</a>
+    <h1>Button 태그</h1>
+    <form action="button.jsp" method="get">
+        Name: <input type="text" id="username" name="name" value="홍길동"><br>
+        성별: <input type="radio" name="gender" id="male" value="Male" checked>
+        <label for="male">Male</label><br>
+        <input type="radio" name="gender" id="female" value="Female">
+        <label for="female">Female</label><br>
+        <input type="submit" value="전송">
+        <input type="button" onclick="window.alert('확인')" value="Click_alert">
+        <input type="button" onclick="location.href='button.jsp'" value="Click_location">
+        <input type="button" onclick="showPage()" value="Click_method">
+
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sum(a,b){
+            return a+b;
+        }
+        var result = sum(10,25);
+        console.log("result : "+result);
+        result = sum("hello", "world");
+        console.log("result: " +result);
+        result = sum("hello", "10");
+        console.log("result: " +result);
+
+        var fnc = function(a,b) {
+            return a*b;
+        }
+        console.log(fnc(3,3));
+        console.log(fnc(3,3,6)); //두개까지만 유효 나머지는 무시
+        console.log(fnc(3)); //오류는 아니지만 NaN뜸
+
+        var fnc2 = function(){
+            document.write("hello");
+        }
+        
+        fnc2();
+        document.write('<br>');
+
+        (function(){document.write("hello me")})();
+
+
+    </script>
+    
+</body>
+</html>

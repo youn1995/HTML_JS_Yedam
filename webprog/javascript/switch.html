@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var week = new Date().getDay();
+        var day;
+        switch (week) {
+            case 0:
+                day = "일요일"; break;
+            case 1:
+                day = "월요일"; break;
+            case 2:
+                day = "화요일"; break;
+        }
+        document.write("오늘은 " + day + "입니다.");
+    </script>
+
+</body>
+
+</html>

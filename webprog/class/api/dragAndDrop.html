@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            float: left;
+            width: 100px;
+            height: 35px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid black;            
+        }
+    </style>
+    <script>
+        function drag(event) {
+            event.dataTransfer.setData("img_id", event.target.id);
+        }
+        function drop(event){
+            var img_id = event.dataTransfer.getData("img_id");
+            event.target.appendChild(document.getElementById(img_id));
+            //<div><img></div> div태그 안에 img태그를 넣겠다가 img태그
+        }
+        function allowDrop(event){
+            event.preventDefault();
+        }
+    </script>
+</head>
+<body>
+    <h1>Drag and Drop</h1>
+    <p>Drag and Drop  기능1</p>
+    <p>Drag and Drop  기능2</p>
+    <p>Drag and Drop  기능3</p>
+
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img src="http://www.w3schools.com/html/img_w3slogo.gif"
+        draggable="true" id="img1" ondragstart="drag(event)">
+    </div>
+    <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+    </div>
+</body>
+</html>

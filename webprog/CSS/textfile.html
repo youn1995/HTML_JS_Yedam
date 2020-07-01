@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #textcolor {
+            color: white;
+        }
+        nav {
+            float: left;
+            width: 200px;
+            border: 3px solid black;
+        }
+
+        aside {
+            float: right;
+            position: fixed;
+            right: 5px;
+            top: 200px;
+            background-color: black;
+            width: 300px;
+            height: 200px;
+        }
+
+        section {
+            position: absolute; left: 230px;
+            width: 70%;
+
+        }
+        div {
+            background-color: black;
+            color: white;
+            margin: 20px;
+            padding: 20px;
+            background-position: center;
+            text-align: center;
+            height: 100px;
+            opacity: 0.6;
+        }
+
+        .city2:hover {
+            text-align: center;
+            height: 300px;
+            opacity: 0.9;
+            transition: all 0.3s linear 0.1s;
+            background-position: center;
+            background-image: url("paris.jpg");
+            background-size: 1000px, 600px;
+            background-repeat: no-repeat;
+
+        }
+        .city3:hover {
+            text-align: center;
+            height: 300px;
+            opacity: 0.9;
+            transition: all 0.3s linear 0.1s;
+            background-position: center;
+            background-image: url("reondeon.jpg");
+            background-repeat: no-repeat;
+
+        }
+        .city1:hover {
+            text-align: center;
+            height: 300px;
+            opacity: 0.9;
+            transition: all 0.3s linear 0.1s;
+            background-position: center;
+            background-image: url("tokyo.png");
+            background-size: 1000px, 500px;
+            background-repeat: no-repeat;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header align="center">
+        <div>
+        <h1>어디로 떠나실껀가요?</h1>
+    </div>
+    </header>
+    <section >
+        <center>
+        <article>
+            <div class="city3">
+                <h2>London</h2>
+                <p>London is the capital of England.</p>
+              </div>
+              
+              <div class="city2">
+                <h2>Paris</h2>
+                <p>Paris is the capital of France.</p>
+              </div>
+              
+              <div class="city1">
+                <h2>Tokyo</h2>
+                <p>Tokyo is the capital of Japan.</p>
+                
+              </div>
+        </article>
+    </center>
+    </section>
+    <footer>
+
+    </footer>
+    <nav>
+        <center>
+            <h4>관련페이지</h4>
+        </center>
+        <ul>
+            <li><a target="_blank" href="https://www.myrealtrip.com">MyRealTrip</a></li>
+            <li><a target="_blank" href="https://www.agoda.com/ko-kr">Agoda</a></li>
+        </ul>
+    </nav>
+    <aside>
+        <center>
+            <h3 id="textcolor">LOGIN</h3> <br>
+        <table>
+            <tr>
+                <td id="textcolor">이름</td>
+                <td><input type="text" name="userName" required></td>
+            </tr>
+            <tr>
+                <td id="textcolor">비밀번호</td>
+                <td><input type="password" name="pass" required></td>
+            </tr>
+            <tr align="center">
+                <td colspan="2"><br><input type="submit" value="전송">
+                    <input type="reset" value="취소"> </td>
+            </tr>
+        </table>
+    </center>
+    </aside>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var person = {
+            firstName: "kildong",
+            lastName: "Hong",
+            age: 20,
+            fullName: function() {return this.firstName + this.lastName}
+        }
+        
+        console.log(person.firstName, person.lastName);
+        console.log(person.fullName());
+
+        
+        var anyAry = [1,2,3,4,'hello',person];
+        for(var i=0; i<anyAry.length; i++){
+            console.log(anyAry[i]);
+        }
+
+        console.log(anyAry[5].firstName);
+    </script>
+</body>
+</html>

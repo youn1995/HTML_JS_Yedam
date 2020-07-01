@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        localStorage.clickCnt = 0;
+        function clickCnt() {
+            if (localStorage.clickCnt != null)
+                localStorage.clickCnt = Number(localStorage.clickCnt) + 1;
+            else
+                localStorage.clickCnt = 1;
+            document.getElementById("show").innerHTML = localStorage.clickCnt;
+        }
+        function setName(){
+            var v_name = document.getElementById("name").value;
+            localStorage.setItem("txtName", v_name);
+        }
+        function getName(){
+            var v_name = localStorage.getItem("txtName");
+            window.alert(v_name);
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="clickCnt()"> Click </button>
+    <p id="show"></p>
+    <input type="text" id="name"><br>
+    <button onclick="setName()">SetName</button>
+    <button onclick="getName()">GetName</button>
+</body>
+
+</html>

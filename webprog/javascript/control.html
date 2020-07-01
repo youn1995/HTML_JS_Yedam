@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="score" value="80" placeholder="숫자입력.">
+    <br>
+    <button onclick="checkScore()">Click</button><br>
+    <p id="show"></p>
+    <script>
+        function checkScore(){
+            var score = document.getElementById('score').value;
+            console.log(typeof score);
+            score = parseInt(score);
+            var element1 = document.getElementById('show');
+            element1.setAttribute('style', 'background-color: aqua');
+                console.log(element1)
+            if(score >= 90) {
+                element1.innerHTML = 'A';
+                // window.alert('A');
+            } else if(score>=80){
+                element1.innerHTML = 'B';
+                // window.alert('B');
+            } else if(score>=70){
+                element1.innerHTML = 'C';
+                // window.alert('C');
+            } else {
+                document.getElementById('show').innerHTML = 'D';
+                // window.alert('D');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="checkboxandradio.jsp" method="get">
+
+      아이디
+                <input type="text" name="id">
+        
+                비밀번호
+                <input type="password" name="pass">
+          
+                    <input type="submit" value="OK">
+                    <input type="reset" value="Cancel">
+   
+    </form>
+     <!-- <form action="checkboxandradio.jsp" method="get">
+        <table border="1">
+            <tr>
+                <td>아이디</td>
+                <td><input type="text" name="id" value="ddmale"></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="pass" value="ddmale"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="OK">
+                    <input type="reset" value="Cancel"
+                </td>
+            </tr>
+        </table>
+    </form> -->
+    <form action="checkboxandradio.jsp" method="get">
+        <h3>당신의 성별</h3>
+        <input type="radio" name="sex" value="male">남자
+        <input type="radio" name="sex" value="female">여자
+        <p></p>
+        <h3>당신의 학년</h3>
+        <input type="radio" name="year" value="1">1학년
+        <input type="radio" name="year" value="2" >2학년
+        <input type="radio" name="year" value="3" >3학년
+        <input type="radio" name="year" value="4" >4학년
+        <p></p>
+        <input type="submit" value="OK">
+        <input type="reset" value="Cancel"
+    </form>
+
+    <form action="checkboxandradio.jsp" method="get">
+        <h3>관심</h3>
+        <input type="checkbox" name="subject" value="HTML5" >HTML5<br>
+        <input type="checkbox" name="subject" value="CSS3" >CSS3<br>
+        <input type="checkbox" name="subject" value="JSP" >JSP<br>
+        <input type="checkbox" name="subject" value="Jquery" >Jquery<br>
+        <p></p>
+        <input type="submit" value="OK">
+        <input type="reset" value="Cancel"
+    </form>
+
+    <form action ="">
+        <h3>선택다해</h3>
+
+    </form>
+</body>
+</html>
