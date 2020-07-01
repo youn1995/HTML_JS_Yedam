@@ -39,6 +39,7 @@ var nameAry = ['신발', '수박', '소박'];
 // }
 // document.write('</table>');
 
+function showCalendar() {
 var dateAry = ['일','월','화','수','목','금','토'];
 document.write('<table border="1">');
 
@@ -70,7 +71,7 @@ for(var i=1; i<=5; i++){
 }
 
 document.write('</table>');
-
+}
 
 // var dateAry = ['일','월','화','수','목','금','토'];
 // document.write('<table border="1">');

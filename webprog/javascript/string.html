@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = "Hello"; //typeof str -> string
+        var str2 = new String("Hello");
+        console.log(str == str2); //값만 비교
+        console.log(str === str2); //타입까지 비교 str은 기본타입 str2는 오브젝트타입
+
+        str = 'locate Please locate where "locate" occurs!';
+        // str.indexOf('locate'); //값이 없으면 -1 //있으면 앞에서 부터의 그 위치의 인덱스
+
+        console.log(str.indexOf('locates'));
+        console.log(str.lastIndexOf('locate')); // 뒤에서 부터 검사 해서 있므면 해당 문자의 첫번째 자리의 인덱스값 21이 나옴
+        console.log(str.indexOf('locate', 10));
+        console.log(str.search('locate')); // 값이 두개가 못들어옴 검색위치 지정 못함 그리고 첫번째 값만 들고옴
+        
+        var result = str.slice(7, 13); //substring, substr // 7번부터 13번째까지만 들고옴
+        document.write('<b>'+result+'</b><br>');
+
+        result = str.substr(7,13); //7번부터 13개를 가져옴
+        document.write('<h1>'+result+'</h1>');
+
+        result = str.replace('locate', 'dodoshop') //첫번쨰만 바뀜
+        console.log(result);
+
+        result = str.replace(/locate/g, 'dodoshop')
+        console.log(result);
+
+        str = 'locate Please locate where "LOCATE" occurs!';
+        result = str.toLowerCase();
+        console.log(result);
+        result = str.toUpperCase();
+        console.log(result);
+        result = "Hello".concat(" world", " Welcome")
+        console.log(result);
+
+        var sp = "banana, orange, apple".split(", ");
+        for(var i=0; i<sp.length; i++){
+            document.write(sp[i]+' ');
+        }
+        // for(var i : sp){
+            //자바스크립트에서는 이렇게 못씀
+        // } 
+        for(i of sp){ // 이렇게 써야함
+            console.log(i);
+        }
+
+    </script>
+</body>
+</html>
