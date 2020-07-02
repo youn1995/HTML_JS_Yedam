@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="func1.js"></script>
+</head>
+
+<body>
+    <p class="show"></p>
+    <p class="show"></p>
+    <p id="hi"></p>
+    <button onclick="hi()">hi</button>
+    <button onclick="sum()">Click</button>
+    <button onclick="mySum()">myClick</button>
+    <button onclick="arrayTest()">arraySUM</button>
+    <button onclick="funcTest()">funcTest</button>
+    <script>
+        console.log(document.getElementsByClassName("show"))
+        var cols = document.getElementsByClassName("show");
+        cols[0].innerHTML = "heloeoe";
+        cols[1].innerHTML = "wheheheheh";
+        // document.getElementById("show").innerHTML = "<h1>hello</h1>";
+        funcTest();
+
+        var x = 10;
+        let y = 10;
+        function getXvalue(){
+            // var x = 20; //로컬{}안에서 선언된 변수는 그해당되는 {}곳에서만 쓰임
+            x = 20;
+            y = 20;
+            console.log('x1: '+x);
+            console.log('y1: '+y);
+        }
+        getXvalue();
+        console.log('x2: '+x);
+        console.log('y2: '+y);
+        var x = 10; // var는 에러가 발생하지 않음
+        // let y = 10; // let은 중복해서 선언하면 에러가 발생
+        console.log('x3: '+x);
+        console.log('y3: '+y);
+        
+    </script>
+    
+</body>
+
+</html>
