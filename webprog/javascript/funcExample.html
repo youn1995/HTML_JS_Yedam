@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input oninput="elementFunc1()" type="text" id="val1"> +
+    <input oninput="elementFunc1()" type="text" id="val2"> =
+    <!-- <input onchage="elementFunc()" type="text" id="val2"> = 탭으로 넘어갈때 즉 포커스가 다른곳으로 갈때 -->
+    <input type="text" id="result">
+    <button onclick="elementFunc()">Click</button>
+    <script>
+        var plusFunc = function (a, b) {
+            return a + b;
+        }
+        plusFunc(10, 20);
+        console.log(plusFunc(10, 20))
+
+        var elementFunc = function () {
+            var a = document.getElementById('val1').value;
+            var b = document.getElementById('val2').value;
+            document.getElementById('result').value = plusFunc(parseInt(a), parseInt(b));
+        }
+
+        var elementFunc1 = function () {
+            var a = document.getElementById('val1').value;
+            var b = document.getElementById('val2').value;
+            if (b == "") {
+                b = 0;
+            } else if (a != "" && b != 0) {
+                document.getElementById('result').value = plusFunc(parseInt(a), parseInt(b));
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        for (var i = 0; i < 10; i++) {
+            document.write("<p class='col'>" + i + "</p>")
+        }
+        var elmtAry = document.getElementsByClassName("col");
+        // console.log(elmtAry);
+        var newAry = [];
+        for (var i = 0; i < elmtAry.length; i++) {
+            newAry.push(elmtAry[i].innerHTML);
+        }
+        // console.log(newAry)
+        // elmtAry[0].innerHTML = "hello";
+        // var spliceAry = newAry.splice(5,2); //splice는 인덱스번호부터 두번째매개변수값까지를 잘라서 배열을 만듬 두번째매개변수가 없으면 인덱스부터 그뒤로전부다
+        var spliceAry = newAry.splice(5);
+        // console.log(spliceAry);
+
+        var spliceAry1 = newAry.splice(0, 3);
+
+        var totalSplice = spliceAry.concat(spliceAry1);
+
+        var sum = 0;
+        totalSplice.forEach(function (a, b, c) {
+            console.log(a,b);
+            sum += parseInt(a);
+        });
+        document.write(sum);
+
+        document.write("<br><ul>")
+        totalSplice.forEach(callbackFunc)
+        document.write("</ul>")
+        function callbackFunc(a, b, c) {
+            console.log(a,b);
+            // sum += parseInt(a);
+            document.write("<li> index:"+ b+ ", value: "+a+"</li>");
+        };
+        // document.write(sum);
+
+        var callbackFunc1=function (a, b, c) { // 변수선언이 위에있어야함 호출시점보다 그래서 이건 안됨
+            console.log(a,b);
+            sum += parseInt(a);
+        };
+    </script>
+</body>
+
+</html>

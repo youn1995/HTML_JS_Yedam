@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var person = {name: "Hong", age: 20, height: 170, eat: function() {console.log("eat")}};
+        var person1 = {name: "Hong", age: 20, height: 170, eat: function() {console.log("eat")}};
+        var persons = [person, person1];
+        var nm ="name";
+        person.name = "Han";
+        // console.log(person["name"]);
+        // console.log(person[nm]);
+        console.log(persons);
+        // console.log(persons[0].name,persons[0].age,persons[0]["height"]);
+        document.write('<p>'+persons[0].name+'</p>');
+        document.write('<p>'+persons[0].age+'</p>');
+        document.write('<p>'+persons[0]["height"]+'</p>'); 
+
+        var strAry=[];
+        strAry.push("Min");
+        strAry.push("Bin");
+        strAry[strAry.length] = "Win";
+        for(var i=0; i<strAry.length; i++){
+            document.write("<p>"+strAry[i]+"</p>");
+        }
+        console.log("----------------");
+        strAry.pop(); //마지막요소 제거
+        delete strAry[1]; //지정인댁스 제거
+        for(var i=0; i<strAry.length; i++){
+            console.log(strAry[i]);
+        }
+        console.log("----------------");
+        strAry.unshift("kin"); //앞쪽으로 추가
+        strAry.unshift("cin");
+        console.log("----------------");
+        for(var i=0; i<strAry.length; i++){
+            console.log(strAry[i]);
+        }
+        console.log("----------------");
+        strAry.shift(); //앞쪽부터 지움
+        for(var i=0; i<strAry.length; i++){
+            console.log(strAry[i]);
+        }
+    </script>
+</body>
+
+</html>

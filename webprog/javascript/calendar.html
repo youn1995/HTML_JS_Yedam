@@ -9,13 +9,17 @@
 
 <body>
     <p id='cal'></p>
-    <button onclick="showCalendar(2020, 7)">showCal</button>
+    년도:<input type="text" id="year"><br>
+    월:<input type="text" id="month"><br>
+    <button onclick="showCalendar()">showCal</button>
     <script>
-        function showCalendar(year, month) {
-            // var today =new Date(year, month-1, 1); //month -1 이 7
-            // console.log(today.getDay());
-            // console.log(new Date(yaer,month,0)); // month는 8인데 그전달의 마지막날을 알수있음 (0은마지막날짜를알수있음)
+        function showCalendar() {
+            var year = document.getElementById("year").value;
+            var month = document.getElementById("month").value;
+            var today = new Date(year, month - 1, 1); //month -1 이 7
+            var lastDay = new Date(year, month, 0).getDate(); // month는 8인데 그전달의 마지막날을 알수있음 (0은마지막날짜를알수있음)
             var dayAry = ['일', '월', '화', '수', '목', '금', '토'];
+            
             var $table = document.createElement('table');//<table></table> 테이블 요소를 하나 만든다는 의미
             $table.setAttribute('border', '1');
             var $tr = document.createElement('tr'); //<tr></tr>
@@ -27,25 +31,25 @@
             }
             $table.appendChild($tr);
             $tr = document.createElement('tr');
-            emptyTd= 1;
-            for(var i=0; i<emptyTd; i++){
+            emptyTd = today.getDay();
+            for (var i = 0; i < emptyTd; i++) {
                 var $td = document.createElement('td');
                 $td.appendChild(document.createTextNode(' '));
                 $tr.appendChild($td);
             }
-            
-            for(var i=0; i<30; i++){
-                var $text = document.createTextNode(i+1);
+
+            for (var i = 0; i < lastDay; i++) {
+                var $text = document.createTextNode(i + 1);
                 var $td = document.createElement('td');
                 $td.appendChild($text); // <td>1</td>
                 $tr.appendChild($td); // <tr><td>1</td></tr>
-                if((i+emptyTd)%7 ==0){
+                if ((i + emptyTd) % 7 == 0) {
                     $td.setAttribute('style', 'background-color: red;');
                 }
-                if((i+emptyTd)%7 ==6){
+                if ((i + emptyTd) % 7 == 6) {
                     $td.setAttribute('style', 'background-color: blue;');
                     $table.appendChild($tr);
-                    $tr =document.createElement('tr');
+                    $tr = document.createElement('tr');
                 }
             }
             $table.appendChild($tr); //<table><tr><th>일</th>th>월</th>th>화</th></tr>...</table>

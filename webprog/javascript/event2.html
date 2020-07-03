@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function showCurrentTime() {
+            document.getElementById("show").innerHTML = Date();
+        }
+
+    </script>
+</head>
+
+<body>
+    ID: <input type="text" id="id_">
+    FName <input type="text" id="FName">
+    LName <input type="text" id="LName">
+    <button id = "btn_">Click</button>
+    <p id="show"></p>
+    <!-- <button onclick="showCurrentTime()" id="btn">Click</button> -->
+    <button id="btn">Click</button>
+    <script>
+        // console.log(this); // window object를 가르킴
+        // var btn = document.getElementById("btn")
+        // //showCurrnetTime(); //이렇게 쓰면 클릭과 상관없이 페이지가 로딩되면 실행됨
+        // btn.onclick = showCurrentTime; //click이벤트가 발생하면 실행
+        // btn.onmouseover = function(){
+        //     btn.setAttribute("style","background-color: yellow;");
+        // }
+        // btn.onmouseout = function(){
+        //     btn.setAttribute("style","background-color: null;");
+        // }
+        var jsonData = [{ "id": 1, "first_name": "Dalton", "last_name": "Macellar", "email": "dmacellar0@webs.com", "gender": "Male" },
+        { "id": 2, "first_name": "Kathrine", "last_name": "Goodlake", "email": "kgoodlake1@google.com.au", "gender": "Female" },
+        { "id": 3, "first_name": "Cosmo", "last_name": "Arnoll", "email": "carnoll2@seesaa.net", "gender": "Male" },
+        { "id": 4, "first_name": "Hyacinthe", "last_name": "Bonellie", "email": "hbonellie3@tinyurl.com", "gender": "Female" },
+        { "id": 5, "first_name": "Ozzie", "last_name": "Camber", "email": "ocamber4@ucsd.edu", "gender": "Male" },
+        { "id": 6, "first_name": "Tadeas", "last_name": "Larcier", "email": "tlarcier5@independent.co.uk", "gender": "Male" },
+        { "id": 7, "first_name": "Forrest", "last_name": "Bourhill", "email": "fbourhill6@ucsd.edu", "gender": "Male" },
+        { "id": 8, "first_name": "Minetta", "last_name": "Kupka", "email": "mkupka7@nyu.edu", "gender": "Female" },
+        { "id": 9, "first_name": "Guido", "last_name": "Rolfo", "email": "grolfo8@chicagotribune.com", "gender": "Male" },
+        { "id": 10, "first_name": "Trixi", "last_name": "Anespie", "email": "tanespie9@wikia.com", "gender": "Female" },
+        { "id": 11, "first_name": "Noland", "last_name": "Vasyagin", "email": "nvasyagina@lycos.com", "gender": "Male" },
+        { "id": 12, "first_name": "Rhiamon", "last_name": "Sive", "email": "rsiveb@google.es", "gender": "Female" },
+        { "id": 13, "first_name": "Nikolaos", "last_name": "Pollins", "email": "npollinsc@gravatar.com", "gender": "Male" },
+        { "id": 14, "first_name": "Lennie", "last_name": "Tench", "email": "ltenchd@usatoday.com", "gender": "Male" },
+        { "id": 15, "first_name": "Crystal", "last_name": "Bompass", "email": "cbompasse@chronoengine.com", "gender": "Female" }];
+        titles = ["id", "first_name", "last_name",]
+       
+        var $table = document.createElement("table");
+        var $tr = document.createElement("tr");
+        for (field of titles) {
+            var $th = document.createElement("th");
+            var $text = document.createTextNode(field.replace("_", " ").toUpperCase())
+            $th.appendChild($text);
+            $tr.appendChild($th);
+        }
+        $table.appendChild($tr);
+        $table.setAttribute("border", "1");
+        $table.setAttribute("id", "tbl");
+        jsonData.forEach(function (o, i, a) {
+            var $tr = document.createElement("tr");
+            // for(field in jsonData[0]){
+            for (field of titles) {
+                var $td = document.createElement("td");
+                var $text = document.createTextNode(o[field]);
+                $td.appendChild($text);
+                $tr.appendChild($td);
+            }
+            $td = document.createElement("td");
+            var $button = document.createElement("button");
+            $button.innerHTML = "Click";
+            // $button.onclick= function(){`
+            $button.onmouseover = function () {
+                // window.alert("click");
+                this.parentNode.parentNode.style.background = "yellow"; //this는 버튼, 그거에 parnentNode는 td, 그거의 parnentNod는 tr > ... >...
+            };
+            $button.onmouseout = function () {
+                this.parentNode.parentNode.style.background = "";
+            };
+            $button.onclick= function(){
+                this.parentNode.parentNode.remove();
+            }
+            $td.appendChild($button);
+            $tr.appendChild($td)
+            $table.appendChild($tr);
+        });
+
+
+
+        
+        var $button_ = document.getElementById("btn_");
+        $button_.onclick = function(){
+            var insertValue = [document.getElementById("id_").value, document.getElementById("FName").value, document.getElementById("LName").value];
+            var $tr_ = document.createElement("tr");
+            for(ins of insertValue){
+                var $td_ = document.createElement("td");
+                console.log(ins);
+                var $text_ = document.createTextNode(ins);
+                $td_.appendChild($text_);
+                $tr_.appendChild($td_);
+            }
+            $td_ = document.createElement("td");
+            var $button_ = document.createElement("button");
+            $button_.innerHTML = "Click";
+            // $button.onclick= function(){`
+            $button_.onmouseover = function () {
+                // window.alert("click");
+                this.parentNode.parentNode.style.background = "yellow"; //this는 버튼, 그거에 parnentNode는 td, 그거의 parnentNod는 tr > ... >...
+            };
+            $button_.onmouseout = function () {
+                this.parentNode.parentNode.style.background = "";
+            };
+            $button_.onclick= function(){
+                this.parentNode.parentNode.remove();
+            }
+            $td_.appendChild($button_);
+            $tr_.appendChild($td_)
+            $table.appendChild($tr_);
+        };
+
+        var show = document.getElementById("show");
+        show.appendChild($table);
+    </script>
+</body>
+
+</html>
