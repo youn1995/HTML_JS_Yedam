@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="show">
+        <table border="1" id="tbl">
+            <tr>
+                <th>EmpId</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Event</th>
+            </tr>
+            <tr>
+                <td>101</td>
+                <td>kildong</td>
+                <td>hong</td>
+                <td><button>Delete</button></td>
+            </tr>
+            <tr>
+                <td>102</td>
+                <td>dildong</td>
+                <td>nong</td>
+                <td><button>Delete</button></td>
+            </tr>
+        </table>
+    </p>
+    <script>
+        var tbl = document.getElementById('tbl');
+        console.log(tbl);
+        console.log(tbl.childNodes[1]);
+        console.log(tbl.childNodes[1].childNodes[2]); //tbody는 우리가 만든게 아님 근데 tbody에는 textnode가 없어서 childnodes 2번이 tr임
+        console.log(tbl.childNodes[1].childNodes[2].childNodes[1]);
+        console.log(tbl.childNodes[1].childNodes[2].childNodes[1].childNodes[0]);
+        console.log(tbl.childNodes[1].childNodes[2].childNodes[1].childNodes[0].nodeValue);
+        console.log(tbl.childNodes[1].childNodes[2].childNodes[3].childNodes[0].nodeValue);
+
+        tbl.childNodes[1].childNodes[2].childNodes[7].childNodes[0].innerHTML = "save";
+        tbl.childNodes[1].childNodes[2].childNodes[7].childNodes[0].childNodes[0].nodeValue = "ss";
+        tbl.childNodes[1].childNodes[2].childNodes[7].childNodes[0].style.background = "red";
+        console.log(tbl.childNodes[1].childNodes[2].childNodes[7].childNodes[0]);
+    </script>
+
+    <div id="div1">
+        <p id="p1">This is a paragraph.</p>
+        <p id="p2">This is another paragraph.</p>
+    </div>
+    <p id="p3">This is another paragraph111111111111111.</p>
+    <script>
+        var parent = document.getElementById("div1");
+        var child = document.getElementById("p1");
+        // parent.removeChild(child);
+        var ptags = document.querySelectorAll("#div1 > p");
+        console.log(ptags)
+        ptags.forEach(function (a) {
+            parent.removeChild(a);
+        })
+    </script>
+
+
+</body>
+
+</html>

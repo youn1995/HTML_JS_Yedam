@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <p id="d1"></p>
-    <p id="d1"></p>
-    <p id="d3"></p>
-    <p id="d4"></p>
 
-    document.getE
+<body>
+    <p id="d1">1</p>
+    <p id="d1">2</p>
+    <p id="d3">3</p>
+    <p id="d4">4</p>
+
+    <h2>Finding HTML Elements by Query Selector</h2>
+
+    <p>Hello World!</p>
+
+    <p class="intro">The DOM is very useful.</p>
+    <p class="intro">This example demonstrates the <b>querySelectorAll</b> method.</p>
+
+    <p id="demo"></p>
+
+    <script>
+        var x = document.querySelectorAll("p.intro"); //얘는 노드리스트로 가져옴 foreach가능
+        x = document.getElementsByClassName("intro"); // 얘는 컬랙션으로 가져옴 foreach불가
+        console.log(x);
+        // document.getElementById("demo").innerHTML =
+        //     'The first paragraph (index 0) with class="intro": ' + x[0].innerHTML;
+        var demo = document.getElementById('demo');
+        x.forEach(function (a) {
+            demo.innerHTML += a.innerHTML + "<br>";
+        })
+    </script>
 </body>
+
 </html>
