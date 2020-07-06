@@ -5,12 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .tranClass {
+            background-color: whitesmoke;
+        
+            transition: all 1s linear 0.1s;
+        }
+        .tranClass:hover {
+        
+            transition: all 0.3s linear 0.1s;
+}
+
+    </style>
 </head>
 
-<body>
+<body id="show">
 
-    </header>
-    <p id="show"></p>
     <script>
         var jsonData = [{ "id": 1, "first_name": "Dalton", "last_name": "Macellar", "email": "dmacellar0@webs.com", "gender": "Male" },
         { "id": 2, "first_name": "Kathrine", "last_name": "Goodlake", "email": "kgoodlake1@google.com.au", "gender": "Female" },
@@ -47,7 +57,11 @@
         $table.appendChild($tr);
         jsonData.forEach(function (o, i, a) {
             var $tr = document.createElement('tr');
+            $tr.addEventListener("mouseover", changeColFunc);
+            $tr.addEventListener("mouseout", changeColDefFunc);
             $tr.setAttribute('id', o.id);
+            $tr.setAttribute('class', 'tranClass');
+
             for (field of titles) {
                 var $td = document.createElement("td");
                 var $text = document.createTextNode(o[field]);
@@ -56,20 +70,31 @@
             }
             var $td = document.createElement("td");
             var btnClick = document.createElement("button")
+            btnClick.setAttribute('id', o.id)
             btnClick.innerHTML = "Delete";
             btnClick.addEventListener("click", deleteFunc);
+            // btnClick.addEventListener("mouseover", changeColFunc);
+            // btnClick.addEventListener("onmouseout", changeColDefFunc);
             $td.appendChild(btnClick)
             $tr.appendChild($td);
             $table.appendChild($tr);
         });
 
-        function deleteFunc(){
-            
-            console.log(this.parentNode);
+        function deleteFunc() {
+            document.getElementById(this.id).remove();
+        }
+        function changeColFunc() {
+            var chan_ = document.getElementById(this.id).style.background;
+            document.getElementById(this.id).style.background = "yellow";
+            document.getElementById(this.id).style.fontSize = '20px';
+        }
+        function changeColDefFunc() {
+            document.getElementById(this.id).style.background = "";
+            document.getElementById(this.id).style.fontSize = '16px';
         }
 
         document.getElementById("show").appendChild($table);
-        
+
         // document.getElementById(id).remove();
         // var $tr = document.createElement('tr');
         // $tr.setAttribute('id', jsonData.id);
@@ -78,6 +103,7 @@
         // $tr.remove();
 
     </script>
+
 </body>
 
 </html>
