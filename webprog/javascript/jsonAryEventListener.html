@@ -8,93 +8,142 @@
     <style>
         .tranClass {
             background-color: whitesmoke;
-        
+
             transition: all 1s linear 0.1s;
         }
-        .tranClass:hover {
-        
-            transition: all 0.3s linear 0.1s;
-}
 
+        .tranClass:hover {
+
+            transition: all 0.3s linear 0.1s;
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
 </head>
 
 <body id="show">
+    <center>
+        <div style="background-color: yellowgreen; margin: 10px;">
 
-    <script>
-        var jsonData = [{ "id": 1, "first_name": "Dalton", "last_name": "Macellar", "email": "dmacellar0@webs.com", "gender": "Male" },
-        { "id": 2, "first_name": "Kathrine", "last_name": "Goodlake", "email": "kgoodlake1@google.com.au", "gender": "Female" },
-        { "id": 3, "first_name": "Cosmo", "last_name": "Arnoll", "email": "carnoll2@seesaa.net", "gender": "Male" },
-        { "id": 4, "first_name": "Hyacinthe", "last_name": "Bonellie", "email": "hbonellie3@tinyurl.com", "gender": "Female" },
-        { "id": 5, "first_name": "Ozzie", "last_name": "Camber", "email": "ocamber4@ucsd.edu", "gender": "Male" },
-        { "id": 6, "first_name": "Tadeas", "last_name": "Larcier", "email": "tlarcier5@independent.co.uk", "gender": "Male" },
-        { "id": 7, "first_name": "Forrest", "last_name": "Bourhill", "email": "fbourhill6@ucsd.edu", "gender": "Male" },
-        { "id": 8, "first_name": "Minetta", "last_name": "Kupka", "email": "mkupka7@nyu.edu", "gender": "Female" },
-        { "id": 9, "first_name": "Guido", "last_name": "Rolfo", "email": "grolfo8@chicagotribune.com", "gender": "Male" },
-        { "id": 10, "first_name": "Trixi", "last_name": "Anespie", "email": "tanespie9@wikia.com", "gender": "Female" },
-        { "id": 11, "first_name": "Noland", "last_name": "Vasyagin", "email": "nvasyagina@lycos.com", "gender": "Male" },
-        { "id": 12, "first_name": "Rhiamon", "last_name": "Sive", "email": "rsiveb@google.es", "gender": "Female" },
-        { "id": 13, "first_name": "Nikolaos", "last_name": "Pollins", "email": "npollinsc@gravatar.com", "gender": "Male" },
-        { "id": 14, "first_name": "Lennie", "last_name": "Tench", "email": "ltenchd@usatoday.com", "gender": "Male" },
-        { "id": 15, "first_name": "Crystal", "last_name": "Bompass", "email": "cbompasse@chronoengine.com", "gender": "Female" }];
+            <h3>사원목록</h3>
+        </div>
+        ID: <input type="text" id="id_">
+        FName <input type="text" id="FName">
+        LName <input type="text" id="LName">
+        Email <input type="text" id="Email">
+        Gender <input type="text" id="Gender">
+        <button id="btn_">Click</button>
+        <hr>
 
-        titles = ["id", "first_name", "last_name", "email", "gender"]
+        <script>
+            var jsonData = [{ "id": 1, "first_name": "Dalton", "last_name": "Macellar", "email": "dmacellar0@webs.com", "gender": "Male" },
+            { "id": 2, "first_name": "Kathrine", "last_name": "Goodlake", "email": "kgoodlake1@google.com.au", "gender": "Female" },
+            { "id": 3, "first_name": "Cosmo", "last_name": "Arnoll", "email": "carnoll2@seesaa.net", "gender": "Male" },
+            { "id": 4, "first_name": "Hyacinthe", "last_name": "Bonellie", "email": "hbonellie3@tinyurl.com", "gender": "Female" },
+            { "id": 5, "first_name": "Ozzie", "last_name": "Camber", "email": "ocamber4@ucsd.edu", "gender": "Male" },
+            { "id": 6, "first_name": "Tadeas", "last_name": "Larcier", "email": "tlarcier5@independent.co.uk", "gender": "Male" },
+            { "id": 7, "first_name": "Forrest", "last_name": "Bourhill", "email": "fbourhill6@ucsd.edu", "gender": "Male" },
+            { "id": 8, "first_name": "Minetta", "last_name": "Kupka", "email": "mkupka7@nyu.edu", "gender": "Female" },
+            { "id": 9, "first_name": "Guido", "last_name": "Rolfo", "email": "grolfo8@chicagotribune.com", "gender": "Male" },
+            { "id": 10, "first_name": "Trixi", "last_name": "Anespie", "email": "tanespie9@wikia.com", "gender": "Female" },
+            { "id": 11, "first_name": "Noland", "last_name": "Vasyagin", "email": "nvasyagina@lycos.com", "gender": "Male" },
+            { "id": 12, "first_name": "Rhiamon", "last_name": "Sive", "email": "rsiveb@google.es", "gender": "Female" },
+            { "id": 13, "first_name": "Nikolaos", "last_name": "Pollins", "email": "npollinsc@gravatar.com", "gender": "Male" },
+            { "id": 14, "first_name": "Lennie", "last_name": "Tench", "email": "ltenchd@usatoday.com", "gender": "Male" },
+            { "id": 15, "first_name": "Crystal", "last_name": "Bompass", "email": "cbompasse@chronoengine.com", "gender": "Female" }];
 
-        var $table = document.createElement('table');
-        $table.setAttribute('border', '1');
-        var $tr = document.createElement('tr');
-        for (field of titles) {
+            titles = ["id", "first_name", "last_name", "email", "gender"]
+
+            var $table = document.createElement('table');
+            $table.setAttribute('border', '1');
+            $table.setAttribute('class', 'center')
+            var $tr = document.createElement('tr');
+            for (field of titles) {
+                var $th = document.createElement("th");
+                var $text = document.createTextNode(field.replace("_", " ").toUpperCase())
+                $th.appendChild($text);
+                $tr.appendChild($th);
+            }
             var $th = document.createElement("th");
-            var $text = document.createTextNode(field.replace("_", " ").toUpperCase())
+            var $text = document.createTextNode("Button");
             $th.appendChild($text);
             $tr.appendChild($th);
-        }
-        var $th = document.createElement("th");
-        var $text = document.createTextNode("Button");
-        $th.appendChild($text);
-        $tr.appendChild($th);
 
-        $table.appendChild($tr);
-        jsonData.forEach(function (o, i, a) {
-            var $tr = document.createElement('tr');
-            $tr.addEventListener("mouseover", changeColFunc);
-            $tr.addEventListener("mouseout", changeColDefFunc);
-            $tr.setAttribute('id', o.id);
-            $tr.setAttribute('class', 'tranClass');
-
-            for (field of titles) {
-                var $td = document.createElement("td");
-                var $text = document.createTextNode(o[field]);
-                $td.appendChild($text);
-                $tr.appendChild($td);
-            }
-            var $td = document.createElement("td");
-            var btnClick = document.createElement("button")
-            btnClick.setAttribute('id', o.id)
-            btnClick.innerHTML = "Delete";
-            btnClick.addEventListener("click", deleteFunc);
-            // btnClick.addEventListener("mouseover", changeColFunc);
-            // btnClick.addEventListener("onmouseout", changeColDefFunc);
-            $td.appendChild(btnClick)
-            $tr.appendChild($td);
             $table.appendChild($tr);
-        });
+            jsonData.forEach(function (o, i, a) {
+                var $tr = document.createElement('tr');
+                $tr.addEventListener("mouseover", changeColFunc);
+                $tr.addEventListener("mouseout", changeColDefFunc);
+                $tr.setAttribute('id', o.id);
+                $tr.setAttribute('class', 'tranClass');
 
-        function deleteFunc() {
-            document.getElementById(this.id).remove();
-        }
-        function changeColFunc() {
-            var chan_ = document.getElementById(this.id).style.background;
-            document.getElementById(this.id).style.background = "yellow";
-            document.getElementById(this.id).style.fontSize = '20px';
-        }
-        function changeColDefFunc() {
-            document.getElementById(this.id).style.background = "";
-            document.getElementById(this.id).style.fontSize = '16px';
-        }
+                for (field of titles) {
+                    var $td = document.createElement("td");
+                    var $text = document.createTextNode(o[field]);
+                    $td.appendChild($text);
+                    $tr.appendChild($td);
+                }
+                var $td = document.createElement("td");
+                var btnClick = document.createElement("button")
+                btnClick.setAttribute('id', o.id)
+                btnClick.innerHTML = "Delete";
+                btnClick.addEventListener("click", deleteFunc);
+                // btnClick.addEventListener("mouseover", changeColFunc);
+                // btnClick.addEventListener("onmouseout", changeColDefFunc);
+                $td.appendChild(btnClick)
+                $tr.appendChild($td);
+                $table.appendChild($tr);
+            });
 
-        document.getElementById("show").appendChild($table);
 
+            var $button_ = document.getElementById("btn_");
+            $button_.onclick = function () {
+                var isIdNumNan = document.getElementById("id_").value;
+                if (isNaN(isIdNumNan)) {
+                    window.alert("숫자만 입력하세요.");
+                } else {
+                    var insertValue = [document.getElementById("id_").value, document.getElementById("FName").value, document.getElementById("LName").value,
+                    document.getElementById("Email").value, document.getElementById("Gender").value];
+                    var $tr_ = document.createElement("tr");
+                    $tr_.setAttribute('id', insertValue[0]);
+                    for (ins of insertValue) {
+                        $tr_.addEventListener("mouseover", changeColFunc);
+                        $tr_.addEventListener("mouseout", changeColDefFunc);
+                        $tr_.setAttribute('class', 'tranClass');
+                        var $td_ = document.createElement("td");
+                        console.log(ins);
+                        var $text_ = document.createTextNode(ins);
+                        $td_.appendChild($text_);
+                        $tr_.appendChild($td_);
+                    }
+                    $td_ = document.createElement("td");
+                    var $button_ = document.createElement("button");
+                    $button_.setAttribute('id', insertValue[0])
+                    $button_.addEventListener("click", deleteFunc);
+                    $button_.innerHTML = "Delete";
+                    $td_.appendChild($button_);
+                    $tr_.appendChild($td_)
+                    $table.appendChild($tr_);
+                }
+            };
+
+            document.getElementById("show").appendChild($table);
+
+            function deleteFunc() {
+                document.getElementById(this.id).remove();
+            }
+            function changeColFunc() {
+                var chan_ = document.getElementById(this.id).style.background;
+                document.getElementById(this.id).style.background = "yellow";
+                document.getElementById(this.id).style.fontSize = '20px';
+            }
+            function changeColDefFunc() {
+                document.getElementById(this.id).style.background = "";
+                document.getElementById(this.id).style.fontSize = '16px';
+            }   
         // document.getElementById(id).remove();
         // var $tr = document.createElement('tr');
         // $tr.setAttribute('id', jsonData.id);
@@ -102,8 +151,8 @@
         // $button.setAttribut('id', jsonData);
         // $tr.remove();
 
-    </script>
-
+        </script>
+    </center>
 </body>
 
 </html>
