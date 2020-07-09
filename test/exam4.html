@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    학번 <input type="text" id="studentNo">
+    이름 <input type="text" id="name">
+    학년 <input type="text" id="grade" placeholder="입력시 2학년 -> g2">
+    전공 <input type="text" id="major">
+    <button id="btn">등록</button>
+    <hr>
+    <select name="grades" id="grades" onchange="onchangeFunc()">
+        <option value="g1">1학년</option>
+        <option value="g2">2학년</option>
+        <option value="g3">3학년</option>
+        <option value="g4">4학년</option>
+    </select>
+    <hr>
+    <p id="show"></p>
+
+    <script>
+        var students = []
+        var btn = document.getElementById("btn");
+        btn.onclick = addFunc
+
+        function addFunc() {
+            var student = {
+                studentNo: document.getElementById("studentNo").value,
+                name: document.getElementById("name").value,
+                grade: document.getElementById("grade").value,
+                major: document.getElementById("major").value
+            }
+            students.push(student);
+        }
+
+        function onchangeFunc() {
+            var newAry = students.map(function (o, i, a) {
+                return o;
+            });
+
+            var filterAry = newAry.filter(function (o, i) {
+                return o.grade == document.getElementById("grades").value;
+            });
+            
+            console.log(filterAry);
+            var $show = document.getElementById("show");
+            var cnt = $show.children.length;
+            for(var i=0; i<cnt; i++){
+                $show.removeChild($show.firstChild);
+            }
+            filterAry.forEach(function(o){
+                var $text = document.createTextNode(o.studentNo+", "+o.name+", "+o.grade+", "+o.major);
+                var $li =document.createElement("li");
+                $li.appendChild($text);
+                $show.appendChild($li);
+            });
+            
+        }
+    </script>
+</body>
+
+</html>

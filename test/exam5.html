@@ -5,39 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        .tranClass {
-            background-color: whitesmoke;
-
-            transition: all 1s linear 0.1s;
-        }
-
-        .tranClass:hover {
-
-            transition: all 0.3s linear 0.1s;
-        }
-
-        .center {
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
+    <link type="text/css" rel="stylesheet" href="table.css" />
 </head>
 
-<body id="show">
-    <center>
-        <div style="background-color: yellowgreen; margin: 10px;">
-
-            <h3>사원목록</h3>
-        </div>
-        ID: <input type="text" id="id_">
-        FName <input type="text" id="FName">
-        LName <input type="text" id="LName">
-        Email <input type="text" id="Email">
-        Gender <input type="text" id="Gender">
-        <button id="btn_">Click</button>
-        <hr>
-
+<body>
+        <p id="show"></p>
         <script>
             var jsonData = [{ "id": 1, "first_name": "Dalton", "last_name": "Macellar", "email": "dmacellar0@webs.com", "gender": "Male" },
             { "id": 2, "first_name": "Kathrine", "last_name": "Goodlake", "email": "kgoodlake1@google.com.au", "gender": "Female" },
@@ -59,7 +31,6 @@
 
             var $table = document.createElement('table');
             $table.setAttribute('border', '1');
-            $table.setAttribute('class', 'center')
             var $tr = document.createElement('tr');
             for (field of titles) {
                 var $th = document.createElement("th");
@@ -75,10 +46,10 @@
             $table.appendChild($tr);
             jsonData.forEach(function (o, i, a) {
                 var $tr = document.createElement('tr');
-                $tr.addEventListener("mouseover", changeColFunc);
-                $tr.addEventListener("mouseout", changeColDefFunc);
                 $tr.setAttribute('id', o.id);
-                $tr.setAttribute('class', 'tranClass');
+                if(i%2==1){
+                    $tr.setAttribute('class', 'trColor');
+                }
 
                 for (field of titles) {
                     var $td = document.createElement("td");
@@ -91,68 +62,18 @@
                 btnClick.setAttribute('btn_id', o.id)
                 btnClick.innerHTML = "Delete";
                 btnClick.addEventListener("click", deleteFunc);
-                // btnClick.addEventListener("mouseover", changeColFunc);
-                // btnClick.addEventListener("onmouseout", changeColDefFunc);
                 $td.appendChild(btnClick)
                 $tr.appendChild($td);
                 $table.appendChild($tr);
             });
-
-
-            var $button_ = document.getElementById("btn_");
-            $button_.onclick = function () {
-                var isIdNumNan = document.getElementById("id_").value;
-                if (isNaN(isIdNumNan)) {
-                    window.alert("숫자만 입력하세요.");
-                } else {
-                    var insertValue = [document.getElementById("id_").value, document.getElementById("FName").value, document.getElementById("LName").value,
-                    document.getElementById("Email").value, document.getElementById("Gender").value];
-                    var $tr_ = document.createElement("tr");
-                    $tr_.setAttribute('id', insertValue[0]);
-                    for (ins of insertValue) {
-                        $tr_.addEventListener("mouseover", changeColFunc);
-                        $tr_.addEventListener("mouseout", changeColDefFunc);
-                        $tr_.setAttribute('class', 'tranClass');
-                        var $td_ = document.createElement("td");
-                        console.log(ins);
-                        var $text_ = document.createTextNode(ins);
-                        $td_.appendChild($text_);
-                        $tr_.appendChild($td_);
-                    }
-                    $td_ = document.createElement("td");
-                    var $button_ = document.createElement("button");
-                    $button_.setAttribute('btn_id', insertValue[0])
-                    $button_.addEventListener("click", deleteFunc);
-                    $button_.innerHTML = "Delete";
-                    $td_.appendChild($button_);
-                    $tr_.appendChild($td_)
-                    $table.appendChild($tr_);
-                }
-            };
 
             document.getElementById("show").appendChild($table);
 
             function deleteFunc() {             
                 document.getElementById(this.getAttribute('btn_id')).remove();
             }
-            function changeColFunc() {
-                var chan_ = document.getElementById(this.id).style.background;
-                document.getElementById(this.id).style.background = "yellow";
-                document.getElementById(this.id).style.fontSize = '20px';
-            }
-            function changeColDefFunc() {
-                document.getElementById(this.id).style.background = "";
-                document.getElementById(this.id).style.fontSize = '16px';
-            }   
-        // document.getElementById(id).remove();
-        // var $tr = document.createElement('tr');
-        // $tr.setAttribute('id', jsonData.id);
-        // $button = document.createElement('button');
-        // $button.setAttribut('id', jsonData);
-        // $tr.remove();
 
         </script>
-    </center>
 </body>
 
 </html>
