@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Ajax 요청 페이지</h1>
+    <button id ="btn">Click</button>
+    <script>
+        var btn = document.getElementById('btn');
+        btn.onclick = ajaxFunc;
+        function ajaxFunc(){
+            var xhtp = new XMLHttpRequest(); // 이객체를 만들고
+            xhtp.onreadystatechange = function() { // onreadystatechange로 이벤트를 처리함
+
+                // console.log('readState =>'+xhtp.readyState);
+                // console.log('status =>'+xhtp.status);
+
+                if(xhtp.readyState == 4 && xhtp.status == '200'){ //readyState 4이면 정상처리된거
+                    var data = JSON.parse(xhtp.responseText) // json 타입의 문자열을 자바스크립ㅌ의 오브젝트타입으로
+                    // console.log(xhtp.responseText);
+                    console.log(data);
+                    for(var i=0; i<data.length; i++){
+                        document.write(data[i].first_name+"<br>")
+                    }
+                    data.forEach(function(o, i, a){
+                        document.write(o.first_name+"<br>");
+                    });
+                }
+            }
+            xhtp.open('get','MOCK_DATA.json'); // get방식 post방식 get방식은 주소에 값들이 노출되고 post방식은 send에 넣어소 보냄
+            xhtp.send();
+        }
+    </script>
+</body>
+</html>
