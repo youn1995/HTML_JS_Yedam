@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var $table = $('<table />').attr('border', '1').css('background', 'yellow'); // document.createElement('table') 이랑 동일함
+            // $table.attr('border','1');
+            var $th = $('<tr />').append($('<th />').text('학번'), $('<th />').text('이름'), $('<th />').text('점수'), $('<th />').text('버튼')
+            )
+            $table.append($th);
+            var $tr = $('<tr />').append($('<td />').text('101'), $('<td />').text('Min'), $('<td />').text('90'),$('<td />').html('<button>Click</button>'));
+            // var $td1 = $('<td />').text('101');
+            // var $td2 = $('<td />').text('Min');
+            // var $td3 = $('<td />').text('90');
+            // $tr.append($td1, $td2, $td3);
+            $table.append($tr);
+            $('#show').append($table);
+        });
+    </script>
+</head>
+
+<body>
+    <p id='show'></p>
+</body>
+
+</html>

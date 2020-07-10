@@ -39,11 +39,8 @@
         }
 
         function onchangeFunc() {
-            var newAry = students.map(function (o, i, a) {
-                return o;
-            });
 
-            var filterAry = newAry.filter(function (o, i) {
+            var filterAry = students.filter(function (o, i) {
                 return o.grade == document.getElementById("grades").value;
             });
             

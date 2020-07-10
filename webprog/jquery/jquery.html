@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- jquery 라이브러리가 반드시 있어야함 -->
+    <script>
+        $(document).ready(function () { //스크립트를 순차적으로 읽어오고
+            // $("#show").html("hello,world ")
+            $("button").click(function () {
+         
+            })
+        });
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("ul li:first").hide();
+                // $("ul li").eq(0).hide();
+                // var lis = document.querySelectorAll("ul")[0].querySelectorAll('li:first-child');
+                // var lis = document.querySelector("ul").querySelectorAll('li:first-child');
+                // for (var i = 0; i < lis.length; i++) {
+                //     lis[i].style.display = "none";
+                // }
+            });
+            
+            // $('button').hover(function(){
+            //     $(this).css('background', 'aqua');
+            // }, function(){
+            //     $(this).css('background', '');
+            // });
+            
+            // $('button').eq(1).hover(function(){
+            //     $(this).css('background', 'aqua');
+            // }, function(){
+            //     $(this).css('background', '');
+            // });
+            $('button:last').hover(function(){
+                $(this).css('background', 'aqua');
+            }, function(){
+                $(this).css('background', '');
+            });
+
+            $('li').click(function(){
+                $(this).hide();
+            });
+            $('li').mouseenter(function(){
+                $(this).css('background', 'yellow');
+            });
+            $('li').mouseleave(function(){
+                $(this).css('background', '');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <p>List 1:</p>
+    <ul>
+        <li>Coffee</li>
+        <li>Milk</li>
+        <li>Tea</li>
+    </ul>
+
+    <p>List 2:</p>
+    <ul>
+        <li>Coffee</li>
+        <li>Milk</li>
+        <li>Tea</li>
+    </ul>
+
+    <button>Click me</button>
+    <button>Click me</button>
+    <p id="show"></p>
+    <p class="show"></p>
+    <div class="show"></div>
+    <script>
+        document.getElementById('show').innerHTML = "Hello";//javascript방식
+        $("#show").html("Hello");//jquery방식
+
+        document.getElementsByClassName('show')[0].innerHTML = "World"; //컬렉션으로 가져옴
+        $(".show").eq(0).html("Hello"); //eq를 이용해 인덱스값을 적어줌
+
+        document.querySelectorAll("div.show");
+        $("div.show").eq(0).html("World");
+
+        $(".show").css('background', 'yellow');
+        // document.getElementsByClassName("show")[0].style.background = 'yellow';
+        // document.getElementsByClassName("show")[1].style.background = 'yellow';
+        console.log($(".show"))
+    </script>
+</body>
+
+</html>
