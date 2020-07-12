@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: white;
+}
+
+#wrap {
+    width: 1500px;
+    margin: 0 auto;
+}
+
+.header {
+    width: 100%;
+    height: 150px;
+    background: white;
+}
+.nav{
+    width: 100%;
+    height: 50px;
+    background: white;
+}
+.aside {
+    float: right;
+    width: 30%;
+    height: 1700px;
+    background: white;
+}
+
+.section {
+    float: right;
+    width: 70%;
+    height: 1700px;
+    background: white;
+}
+
+.footer {
+    clear: both;
+    width: 100%;
+    height: 150px;
+    background: white;
+}
+#logintable{
+    width: 100%;
+}
+#login{
+    width:100%;
+
+    color: white;
+   border: 3px outset #666;
+    background-color: #555;
+}
+
+
+/* 화면 너비 0 ~ 1200px */
+@media (max-width: 1220px) {
+    #wrap {
+        width: 100%;
+    }
+}
+
+/* 화면 너비 0 ~ 768px */
+@media (max-width: 768px) {
+    #wrap {
+        width: 100%;
+    }
+}
+
+/* 화면 너비 0 ~ 480px */
+@media (max-width: 480px) {
+    #wrap {
+        width: 95%;
+    }
+
+    .header {
+        height: 300px;
+    }
+    .nav {
+        height: 50px;
+    }
+
+    .aside {
+        float: none;
+        width: 100%;
+        height: 1000px;
+    }
+
+    .section {
+        float: none;
+        width: 100%;
+        height: 1000px;
+    }
+}
+
+#tokyo, #tokyomain, #paris,#parismain{
+        padding: 5px;
+        font-size: 18px;
+        text-align: center;
+        background-color: white;
+        color: black;
+        border: solid 1px #666;
+        border-radius: 5px;
+        
+}
+ #tokyo{
+        height: 300px;
+        padding: 50px;
+        display: none;
+        background-image: url("tokyo.png");
+        background-size: 1000px;
+        background-position: center;
+        background-repeat: no-repeat;
+ }
+
+ #paris{
+    height: 300px;
+    padding: 50px;
+    display: none;
+    background-image: url("paris.jpg");
+    background-size: 1000px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: skyblue;
+    opacity: 0.7;
+  }

@@ -46,5 +46,5 @@ function mouseleaveFunc(){
 
 function btnFunc(){
     // $(this).parent().remove();
-    $(this).parent().hide();
+    $(this).parent().hide('slow');
 }
