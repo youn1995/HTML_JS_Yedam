@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .ancestors * { 
+          display: block;
+          border: 2px solid lightgrey;
+          color: lightgrey;
+          padding: 5px;
+          margin: 15px;
+        }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+        $(document).ready(function(){
+          $("span").parentsUntil('ul').css({"color": "red", "border": "2px solid red"}); //span이 두군데가 있는데 하나는 ul이 있고 하나는 없음 ul이 없는쪽은 ul태그를 찾기위해 끝까지 올라가서 적용시켜버림
+        });
+        </script>
+        </head>
+        <body>
+        
+        <div class="ancestors">
+          <div style="width:500px;">div (great-grandparent)
+            <ul>ul (grandparent)  
+              <li>li (direct parent)
+                <span>span</span>
+              </li>
+            </ul>   
+          </div>
+        
+          <div style="width:500px;">div (grandparent)   
+            <p>p (direct parent)
+              <span>span</span>
+            </p> 
+          </div>
+        </div>
+        
+        </body>
+        </html>
+        
