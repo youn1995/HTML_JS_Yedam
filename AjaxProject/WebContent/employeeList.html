@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EmployeeList</title>
+<script src="jquery-3.5.1.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$.ajax({
+			url: "GetEmpServlet",
+			success: function(result, status, xhr){
+				console.log(result);
+				var data = JSON.parse(result);
+				//console.log(data)
+		
+				//for(var i=0; i<data.length; i++){
+				//document.write("<p>"+data[i].id+" "+data[i].first_name+" "+data[i].email+" "+data[i].salary+"</p]>");
+				//}
+				var titles = ['id','first_name', 'email', 'salary'];
+
+				var $table = $('<table />').attr('border', '1');
+			    var $tr = $('<tr />');
+			    titles.forEach(function (o) {
+			        $tr.append($('<th />').text(o))
+			    });
+			    $table.append($tr)
+			    //데이터영역
+			    data.forEach(function (o, i, a) {
+			        var $tr = $('<tr />').mouseenter(mouseenterFunc).mouseleave(mouseleaveFunc);
+
+			        titles.forEach(function (f) {
+			            $tr.append($('<td />').text(o[f]))
+			        });
+			        $tr.append($('<td />').html('<button>click</button>').click(btnFunc));
+			        $table.append($tr)
+			    })
+			    $('#show').append($table);
+				
+				
+			    function mouseenterFunc(){
+			        $(this).css('background', 'yellow');
+			    }
+
+			    function mouseleaveFunc(){
+			        $(this).css('background', '');
+			    }
+
+			    function btnFunc(){
+			        // $(this).parent().remove();
+			        //console.log($(this).prev().prev().prev().prev().child.value)
+			        console.log($(this).parent().first().innerHTML)
+			        $(this).parent().remove('slow');
+			        
+			    }
+				
+				
+			}
+		});
+		
+	});
+</script>
+</head>
+<body>
+	<p id="show"></p>
+</body>
+</html>
