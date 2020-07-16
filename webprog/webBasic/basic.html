@@ -20,6 +20,7 @@
 
     function showXml(xhtp){
             var datas = xhtp.responseXML;
+            console.log(datas)
             var cds = datas.getElementsByTagName('CD');
             for(var i=0; i<cds.length; i++){
                 for(var j=0; j<cds[i].length; j++){

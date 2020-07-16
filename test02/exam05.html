@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: "emp.xml",
+                success: function (result) {
+                    var $datas = $(result).children().children();
+                    console.log($datas);
+                    console.log($datas.children().length)
+                    for (var i = 0; i < $datas.length; i++) {
+                        document.write($datas.children().eq(i).text() + "<br>");
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -91,7 +91,7 @@ public class EmpDAO {
 			try {
 				conn.close();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				e.printStackTrace();	
 			}
 		}
 
@@ -99,9 +99,30 @@ public class EmpDAO {
 		
 	}
 	
-	public int DeleteEmp(Employee emp) {
+	public int deleteEmp(String empId) {
 		String sql = String.format(
-				"delete from employees where employee_id = %d", emp.getEmployeeId());
+				"delete from employees where employee_id = %s", empId);
+		conn = getConnect();
+		try {
+			pstmt = conn.prepareStatement(sql);
+
+			int r = pstmt.executeUpdate();
+			conn.close();
+			return r;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			try {
+				conn.close();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			return -1;
+		}
+	}
+	
+	public int updateEmp(String empId , String salary) {
+		String sql = String.format(
+				"update employees set salary = %s where employee_id = %s",Integer.parseInt(salary),Integer.parseInt(empId));
 		conn = getConnect();
 		try {
 			pstmt = conn.prepareStatement(sql);

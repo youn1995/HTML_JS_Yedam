@@ -9,7 +9,6 @@
 		$.ajax({
 			url: "GetEmpServlet",
 			success: function(result, status, xhr){
-				console.log(result);
 				var data = JSON.parse(result);
 				//console.log(data)
 		
@@ -28,10 +27,18 @@
 			    data.forEach(function (o, i, a) {
 			        var $tr = $('<tr />').mouseenter(mouseenterFunc).mouseleave(mouseleaveFunc);
 
-			        titles.forEach(function (f) {
-			            $tr.append($('<td />').text(o[f]))
+			        titles.forEach(function (f, k) {
+			        	if(f == 'salary'){
+			        		var $td = $('<td />')
+			        		$td.text(o[f]);
+			        		$td.on('dblclick', dbtnFunc);
+				       	 	 $tr.append($td);
+			        	}else{
+			            	$tr.append($('<td />').text(o[f]));
+			        	}
 			        });
-			        $tr.append($('<td />').html('<button>click</button>').click(btnFunc));
+			        $btn = $('<button />').text('Del').click(btnFunc)
+			        $tr.append($('<td />').append($btn));
 			        $table.append($tr)
 			    })
 			    $('#show').append($table);
@@ -44,13 +51,46 @@
 			    function mouseleaveFunc(){
 			        $(this).css('background', '');
 			    }
-
+				function dbtnFunc(){
+					console.log($(this).text())
+					var $input = $('<input />');
+					$input.attr('value',$(this).text());
+					$input.on('change',changeFunc);
+					$(this).text("");
+					$(this).append($input);
+				}
+				function changeFunc(){
+					var changeVal =$(this).val();
+					var empId = $(this).parent().parent().children().eq(0).text();
+					$(this).parent().text(changeVal);
+					
+					$.ajax({
+				    	   url:"UpdateEmpServlet",
+				    	   data:{"eid":empId, "salary":changeVal},
+				    	   success: function(result,status) {
+				    		   console.log(status);
+				    	   }
+				       });
+					
+					
+				}
+				
 			    function btnFunc(){
 			        // $(this).parent().remove();
 			        //console.log($(this).prev().prev().prev().prev().child.value)
-			        console.log($(this).parent().first().innerHTML)
-			        $(this).parent().remove('slow');
-			        
+			   	 var eid = $(this).parent().parent().children().eq(0).text();
+			       
+			       
+			       $(this).parent().parent().hide();
+			       // $(this).parent().parent().remove('slow');
+			       
+					$.ajax({
+			    	   url:"DelEmpServlet",
+			    	   data:{"eid":eid, "salary":500},
+			    	   success: function(result,status) {
+			    		   console.log(status);
+			    	   }
+			       });
 			    }
 				
 				
