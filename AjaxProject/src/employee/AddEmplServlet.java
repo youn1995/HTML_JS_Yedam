@@ -31,6 +31,11 @@ public class AddEmplServlet extends HttpServlet {
 	        	 break;
 	         }
 		}
+//		String action = request.getParameter("action"); 이런식으로 if문을 나눌수 있음 근데 한 서블릿에 i/o가 집중될수도 있으니 나누는게 좋음
+//		ajax 호출할때 data에 파라미터를 추가해줘야함
+//		if(action.equals("list")) {
+//			//실행할 내용
+//		}
 		
 		if(methodChange == 1) {
 			String lastName = request.getParameter("last_name");

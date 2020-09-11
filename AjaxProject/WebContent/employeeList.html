@@ -51,6 +51,7 @@
 			    function mouseleaveFunc(){
 			        $(this).css('background', '');
 			    }
+			    
 				function dbtnFunc(){
 					console.log($(this).text())
 					var $input = $('<input />');
@@ -61,9 +62,7 @@
 				}
 				function changeFunc(){
 					var changeVal =$(this).val();
-					var empId = $(this).parent().parent().children().eq(0).text();
-					$(this).parent().text(changeVal);
-					
+					var empId = $(this).parent().parent().children().eq(0).text();					
 					$.ajax({
 				    	   url:"UpdateEmpServlet",
 				    	   data:{"eid":empId, "salary":changeVal},
@@ -71,6 +70,7 @@
 				    		   console.log(status);
 				    	   }
 				       });
+					$(this).parent().text(changeVal);
 					
 					
 				}
@@ -81,8 +81,8 @@
 			   	 var eid = $(this).parent().parent().children().eq(0).text();
 			       
 			       
-			       $(this).parent().parent().hide();
-			       // $(this).parent().parent().remove('slow');
+			       //$(this).parent().parent().hide();
+			       $(this).parent().parent().remove();
 			       
 					$.ajax({
 			    	   url:"DelEmpServlet",

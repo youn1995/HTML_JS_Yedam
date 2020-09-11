@@ -15,7 +15,10 @@
                     console.log($datas);
                     console.log($datas.children().length)
                     for (var i = 0; i < $datas.length; i++) {
-                        document.write($datas.children().eq(i).text() + "<br>");
+                    	document.write($datas[i].children().eq(0).text()+
+                    			$datas[i].children().eq(1).text()+
+                    			$datas[i].children().eq(2).text()});
+                        /* document.write($datas.children().eq(i).text() + "<br>"); */
                     }
                 }
             });

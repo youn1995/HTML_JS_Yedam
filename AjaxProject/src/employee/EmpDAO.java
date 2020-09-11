@@ -27,6 +27,31 @@ public class EmpDAO {
 		}
 		return conn;
 	}
+	
+	public List<Employee> getAjaxList() {
+		conn = getConnect();
+		List<Employee> employees = new ArrayList<>();
+		String sql = "select first_name, last_name, email, job_id, hire_date, salary from employees";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Employee emp = new Employee(rs.getString("first_name"), rs.getString("last_name"), rs.getString("email"),
+						rs.getString("job_id"), rs.getString("hire_date").substring(0, 10), rs.getInt("salary"));
+				employees.add(emp);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return employees;
+	}
 
 	public List<Employee> getEmpList() {
 		conn = getConnect();
